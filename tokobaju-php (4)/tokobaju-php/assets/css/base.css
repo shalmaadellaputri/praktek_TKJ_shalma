@@ -1,0 +1,67 @@
+/* ===== Dasar bersama (toko & admin): token, reset, form, tombol, tabel ===== */
+:root {
+  --ink: #000; --paper: #fff; --soft: #f4f4f4; --line: #e3e3e3; --mute: #777;
+  --ok: #0a7a3d; --bad: #b3261e; --run: #1d4ed8; --wait: #8a6100;
+  --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.55 var(--font); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; line-height: 1.15; letter-spacing: -.02em; }
+.eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--mute); margin-bottom: 8px; }
+.muted { color: var(--mute); }
+.small { font-size: 12px; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+/* tombol */
+.btn, button.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 42px; padding: 0 22px;
+  background: var(--ink); color: var(--paper); border: 1px solid var(--ink); font: 700 11px var(--font); letter-spacing: .12em;
+  text-transform: uppercase; text-decoration: none; cursor: pointer; transition: .2s; }
+.btn:hover { background: var(--paper); color: var(--ink); }
+.btn.light { background: var(--paper); color: var(--ink); border-color: #bbb; }
+.btn.light:hover { border-color: var(--ink); }
+.btn.danger { background: var(--paper); color: var(--bad); border-color: var(--bad); }
+.btn.danger:hover { background: var(--bad); color: #fff; }
+.btn.small { height: 32px; padding: 0 14px; font-size: 10px; }
+.btn.full { width: 100%; }
+button.link { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-decoration: underline; }
+
+/* form */
+.field { margin-bottom: 18px; }
+.field label { display: block; margin-bottom: 7px; font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #444; }
+.field small { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--mute); }
+input[type=text], input[type=email], input[type=password], input[type=number], input[type=tel], input[type=date],
+input[type=search], input[type=file], select, textarea {
+  width: 100%; min-height: 42px; padding: 10px 12px; border: 1px solid #c9c9c9; background: var(--paper); color: var(--ink);
+  font: 14px var(--font); border-radius: 0; outline: none; }
+input:focus, select:focus, textarea:focus { border-color: var(--ink); box-shadow: 0 0 0 3px rgba(0,0,0,.08); }
+textarea { resize: vertical; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hint { color: var(--bad); font-size: 12px; margin-top: 4px; }
+
+/* notifikasi */
+.flash { position: sticky; top: 0; z-index: 40; padding: 12px 24px; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-align: center; transition: opacity .4s; }
+.flash.ok { background: #e6f4ec; color: var(--ok); }
+.flash.err { background: #fbe9e7; color: var(--bad); }
+.flash.hide { opacity: 0; pointer-events: none; }
+.alert { padding: 12px 14px; margin-bottom: 18px; border: 1px solid; font-size: 13px; }
+.alert.danger { background: #fbe9e7; border-color: #f2b8b5; color: var(--bad); }
+.alert.info { background: var(--soft); border-color: var(--line); }
+
+/* status */
+.status { display: inline-block; padding: 3px 10px; border: 1px solid currentColor; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.st-ok { color: var(--ok); } .st-bad { color: var(--bad); } .st-run { color: var(--run); } .st-wait { color: var(--wait); }
+
+/* tabel */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); padding: 10px 12px; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+td { padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+td small { display: block; color: var(--mute); font-size: 12px; }
+.pager { display: flex; gap: 6px; margin-top: 20px; flex-wrap: wrap; }
+.pager a { min-width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); text-decoration: none; font-size: 12px; }
+.pager a.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+.menu-toggle { display: none; background: none; border: 0; color: inherit; font-size: 22px; cursor: pointer; }
